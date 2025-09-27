@@ -3,7 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTeste.Views.CoinViews"
              Title="CoinViews">
-    <VerticalStackLayout>
-            
-    </VerticalStackLayout>
+    <!-- Cntrl K + B -->
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">
+            <!-- Carrega a imagem -->
+            <Image x:Name="CoingImage" WidthRequest="100" Source="logojogo.png" />
+            <!-- ngc p escolher as opcoes -->
+            <Picker Title="-- Selecione Cara ou Coroa --"
+                    SelectedItem="{Binding LadoEscolhido}">
+                <Picker.Items>
+                        <x:String>Coroa</x:String>
+                        <x:String>Cara</x:String>
+                </Picker.Items>
+            </Picker>
+            <!-- Botao com formatacao ++ chama as coisa do back pelo COMMAND -->
+            <Button x:Name="CoinFlipButton" Text="Girar a moeda" Command="{Binding FlipCommand}"> </Button>
+            <Label x:Name="ResultaLabel" Text="{Binding Resultado}"></Label>
+            <Image Source="{Binding Imagem}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
